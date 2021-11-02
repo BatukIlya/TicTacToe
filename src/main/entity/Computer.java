@@ -2,23 +2,31 @@ package main.entity;
 
 import java.util.Random;
 
-public class Computer implements Entity{
+public class Computer implements Entity {
     private final char VALUE;
     private final String name = "Computer";
 
-    public Computer(char value){
+    public Computer(char value) {
         this.VALUE = value;
     }
+
+    @Override
+    public boolean isPlayer() {
+        return false;
+    }
+
     @Override
     public String getName() {
         return name;
     }
+
     @Override
     public char getValue() {
         return VALUE;
     }
+
     @Override
-    public void step(Table table){
+    public void step(Table table) {
         Random random = new Random();
         int x;
         int x1;
@@ -27,15 +35,10 @@ public class Computer implements Entity{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        do{
+        do {
             x = random.nextInt(3);
             x1 = random.nextInt(3);
-        }while(!table.isCellOfTableValid(x, x1));
+        } while (!table.isCellOfTableValid(x, x1, this.isPlayer()));
         table.setValueTable(x, x1, this.VALUE);
-
     }
-
-
-
-
 }

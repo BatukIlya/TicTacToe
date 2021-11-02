@@ -13,8 +13,13 @@ public class Table {
         }
     }
 
-    public boolean isCellOfTableValid(int x, int x1) {
-        return table[x][x1] == VALUE_IS_EMPTY;
+    public boolean isCellOfTableValid(int x, int x1, boolean isPlayer) {
+        boolean validValue = table[x][x1] == VALUE_IS_EMPTY;
+        if (isPlayer && !validValue) {
+            System.out.println("This cell is full, select another cell...");
+            return false;
+        }
+        return validValue;
     }
 
     public void setValueTable(int x, int x1, char value) {
@@ -51,7 +56,8 @@ public class Table {
                     (table.table[2][0] == c && table.table[1][1] == c && table.table[0][2] == c)) {
                 return true;
             }
-        }return false;
+        }
+        return false;
     }
 }
 

@@ -12,6 +12,11 @@ public class Player implements Entity {
     }
 
     @Override
+    public boolean isPlayer() {
+        return true;
+    }
+
+    @Override
     public String getName() {
         return name;
     }
@@ -23,30 +28,29 @@ public class Player implements Entity {
 
     @Override
     public void step(Table table) {
-        Scanner scanner = new Scanner(System.in);
         int x;
         int x1;
 
         do {
-           x = getValidValue();
-           x1 = getValidValue();
-        } while (!table.isCellOfTableValid(x, x1));
+            x = getValidValue();
+            x1 = getValidValue();
+        } while (!table.isCellOfTableValid(x, x1, this.isPlayer()));
         table.setValueTable(x, x1, this.VALUE);
     }
 
-    private int getValidValue(){
+    private int getValidValue() {
         Scanner scanner = new Scanner(System.in);
-        int x = 10;
-        while (true){
+        int x;
+        while (true) {
             System.out.println("Entry value 0...2");
-            if (scanner.hasNextInt()){
+            if (scanner.hasNextInt()) {
                 x = Integer.parseInt(scanner.nextLine());
-                if (x >=0 && x < 3){
+                if (x >= 0 && x < 3) {
                     return x;
-                }else{
+                } else {
                     System.out.println("You entered an incorrect value!!!\n");
                 }
-            }else{
+            } else {
                 System.out.println("You entered an incorrect value!!!\n");
                 scanner.nextLine();
             }

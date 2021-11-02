@@ -1,60 +1,70 @@
 package main.service;
 
-import main.engine.GameEngine;
 import main.entity.Computer;
 import main.entity.Entity;
 import main.entity.Player;
+
 import java.util.Scanner;
 
 public class PreparationService {
-    public void preparation(){
+    public Entity[] preparation() {
         Scanner scanner = new Scanner(System.in);
-        GameEngine gameEngine = new GameEngine();
         System.out.println("Do you want to play with each other player or computer? \n" +
                 "Press 1. (for play with computer)\n" +
                 "Press 2. (for play with you friend)");
-        int choice = 0;
-        if(scanner.hasNextInt()){
-            choice = scanner.nextInt();
-        }else{
-            System.out.println("You entered an incorrect value!!!\n");
-            preparation();
+        int choice;
+        while (true) {
+            if (scanner.hasNextInt()) {
+                int x = scanner.nextInt();
+                if (x > 0 && x < 3) {
+                    choice = x;
+                    break;
+                } else {
+                    System.out.println("You entered an incorrect value!!!\n Enter 1 or 2...");
+                    scanner.nextLine();
+                    continue;
+                }
+            } else {
+                System.out.println("You entered an incorrect value!!!\n Enter 1 or 2...");
+                scanner.nextLine();
+            }
         }
 
-        switch (choice){
+        Entity[] entity = new Entity[2];
+
+        switch (choice) {
             case 1:
-                Entity entity1 = new Player('x', "Player 1");
-                Entity entity2 = new Computer('o');
-                gameEngine.startGame(entity1, entity2);
-                break;
+                entity[0] = new Player('x', "Player");
+                entity[1] = new Computer('o');
+                return entity;
             case 2:
-                Entity entity3 = new Player('x', "Player 1");
-                Entity entity4 = new Player('o', "Player 2");
-                gameEngine.startGame(entity3, entity4);
-                break;
-            default:
-                System.out.println("You entered an incorrect value!!!\n");
-                preparation();
+                entity[0] = new Player('x', "Player 1");
+                entity[1] = new Player('o', "Player 2");
+                return entity;
         }
-
-
+        System.exit(0);
+        return entity;
     }
 
-    public boolean repeatGameOrNot(){
-        System.out.println("Do you want to play again???\n Entry Yes or No...\n");
+    public boolean repeatGameOrNot() {
+        Scanner scanner = new Scanner(System.in);
         final String YES = "yes";
         final String NO = "no";
-        Scanner scanner = new Scanner(System.in);
-        String choice = scanner.nextLine().toLowerCase();
-        if(choice.equals(YES)){
-            return true;
-        }else if(choice.equals(NO)){
-            System.out.println("Good bye!!!");
-            System.exit(0);
-        }else{
-            System.out.println("You entry incorrect value\n");
+
+        System.out.println("Do you want to play again???\n Entry Yes or No...\n");
+
+        while (true) {
+            String choice = scanner.nextLine().toLowerCase();
+            if (choice.equals(YES)) {
+                return true;
+            } else if (choice.equals(NO)) {
+                System.out.println("Good bye!!!");
+                System.exit(0);
+            } else {
+                System.out.println("You entry incorrect value!!!\n Entry Yes or No...");
+            }
         }
-        repeatGameOrNot();
-        return false;
+
     }
 }
+
