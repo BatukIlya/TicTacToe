@@ -28,9 +28,28 @@ public class Player implements Entity {
         int x1;
 
         do {
-           x = scanner.nextInt();
-           x1 = scanner.nextInt();
+           x = getValidValue();
+           x1 = getValidValue();
         } while (!table.isCellOfTableValid(x, x1));
         table.setValueTable(x, x1, this.VALUE);
+    }
+
+    private int getValidValue(){
+        Scanner scanner = new Scanner(System.in);
+        int x = 10;
+        while (true){
+            System.out.println("Entry value 0...2");
+            if (scanner.hasNextInt()){
+                x = Integer.parseInt(scanner.nextLine());
+                if (x >=0 && x < 3){
+                    return x;
+                }else{
+                    System.out.println("You entered an incorrect value!!!\n");
+                }
+            }else{
+                System.out.println("You entered an incorrect value!!!\n");
+                scanner.nextLine();
+            }
+        }
     }
 }

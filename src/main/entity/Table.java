@@ -14,9 +14,6 @@ public class Table {
     }
 
     public boolean isCellOfTableValid(int x, int x1) {
-        if (x < 0 || x1 < 0 || x >= 3 || x1 >= 3) {
-            return false;
-        }
         return table[x][x1] == VALUE_IS_EMPTY;
     }
 

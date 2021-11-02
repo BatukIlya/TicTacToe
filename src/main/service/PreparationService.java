@@ -4,7 +4,6 @@ import main.engine.GameEngine;
 import main.entity.Computer;
 import main.entity.Entity;
 import main.entity.Player;
-
 import java.util.Scanner;
 
 public class PreparationService {
@@ -39,5 +38,23 @@ public class PreparationService {
         }
 
 
+    }
+
+    public boolean repeatGameOrNot(){
+        System.out.println("Do you want to play again???\n Entry Yes or No...\n");
+        final String YES = "yes";
+        final String NO = "no";
+        Scanner scanner = new Scanner(System.in);
+        String choice = scanner.nextLine().toLowerCase();
+        if(choice.equals(YES)){
+            return true;
+        }else if(choice.equals(NO)){
+            System.out.println("Good bye!!!");
+            System.exit(0);
+        }else{
+            System.out.println("You entry incorrect value\n");
+        }
+        repeatGameOrNot();
+        return false;
     }
 }
