@@ -17,7 +17,6 @@ public class Table {
         boolean validValue = table[x][x1] == VALUE_IS_EMPTY;
         if (isPlayer && !validValue) {
             System.out.println("This cell is full, select another cell...");
-            return false;
         }
         return validValue;
     }
@@ -27,7 +26,9 @@ public class Table {
     }
 
     public void showTable() {
+        System.out.println("   a  b  c");
         for (int i = 0; i < 3; i++) {
+            System.out.print(i + 1 + "  ");
             for (int j = 0; j < 3; j++) {
                 System.out.print(table[i][j] + "  ");
             }
@@ -43,17 +44,16 @@ public class Table {
                 }
             }
         }
-        System.out.println("Table is full! Game over!");
+        System.out.println("Table is full! Game over!\n");
         return true;
     }
 
-    public boolean checkWins(Table table, Entity entity) {
-        char c = entity.getValue();
+    public boolean checkWins(Table table, char v) {
         for (int i = 0; i < 3; i++) {
-            if ((table.table[i][0] == c && table.table[i][1] == c && table.table[i][2] == c) ||
-                    (table.table[0][i] == c && table.table[1][i] == c && table.table[2][i] == c) ||
-                    (table.table[0][0] == c && table.table[1][1] == c && table.table[2][2] == c) ||
-                    (table.table[2][0] == c && table.table[1][1] == c && table.table[0][2] == c)) {
+            if ((table.table[i][0] == v && table.table[i][1] == v && table.table[i][2] == v) ||
+                    (table.table[0][i] == v && table.table[1][i] == v && table.table[2][i] == v) ||
+                    (table.table[0][0] == v && table.table[1][1] == v && table.table[2][2] == v) ||
+                    (table.table[2][0] == v && table.table[1][1] == v && table.table[0][2] == v)) {
                 return true;
             }
         }

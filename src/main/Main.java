@@ -15,7 +15,5 @@ public class Main {
         {
             gameEngine.startGame(preparationService.preparation(), new Table());
         }
-
-
     }
 }

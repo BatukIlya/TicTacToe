@@ -30,11 +30,13 @@ public class Computer implements Entity {
         Random random = new Random();
         int x;
         int x1;
+
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         do {
             x = random.nextInt(3);
             x1 = random.nextInt(3);
