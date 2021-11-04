@@ -28,55 +28,31 @@ public class Player implements Entity {
 
     @Override
     public void step(Table table) {
-        int[] arrayValue;
-        do {
-            arrayValue = getArrayValue();
-        } while (!table.isCellOfTableValid(arrayValue[0], arrayValue[1], this.isPlayer()));
-        table.setValueTable(arrayValue[0], arrayValue[1], this.VALUE);
+        int x;
+        int x1;
 
+        do {
+            x = getValidValue();
+            x1 = getValidValue();
+        } while (!table.isCellOfTableValid(x, x1, this.isPlayer()));
+        table.setValueTable(x, x1, this.VALUE);
     }
 
-    private int[] getArrayValue() {
+    private int getValidValue() {
         Scanner scanner = new Scanner(System.in);
-        int[] arrayValue = new int[2];
-
+        int x;
         while (true) {
-            System.out.println("Entry a value for the cell. (a1, b2, c3 .... for example)");
-            String value = scanner.nextLine().toLowerCase();
-            switch (value) {
-                case "a1":
-                    return arrayValue;
-                case "a2":
-                    arrayValue[0] = 1;
-                    return arrayValue;
-                case "a3":
-                    arrayValue[0] = 2;
-                    return arrayValue;
-                case "b1":
-                    arrayValue[1] = 1;
-                    return arrayValue;
-                case "b2":
-                    arrayValue[0] = 1;
-                    arrayValue[1] = 1;
-                    return arrayValue;
-                case "b3":
-                    arrayValue[0] = 2;
-                    arrayValue[1] = 1;
-                    return arrayValue;
-                case "c1":
-                    arrayValue[1] = 2;
-                    return arrayValue;
-                case "c2":
-                    arrayValue[0] = 1;
-                    arrayValue[1] = 2;
-                    return arrayValue;
-                case "c3":
-                    arrayValue[0] = 2;
-                    arrayValue[1] = 2;
-                    return arrayValue;
-                default:
-                    System.out.println("You entered incorrect value!!!");
-
+            System.out.println("Entry value 0...2");
+            if (scanner.hasNextInt()) {
+                x = Integer.parseInt(scanner.nextLine());
+                if (x >= 0 && x < 3) {
+                    return x;
+                } else {
+                    System.out.println("You entered an incorrect value!!!\n");
+                }
+            } else {
+                System.out.println("You entered an incorrect value!!!\n");
+                scanner.nextLine();
             }
         }
     }

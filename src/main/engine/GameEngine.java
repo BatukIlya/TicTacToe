@@ -5,13 +5,12 @@ import main.entity.Table;
 
 public class GameEngine {
     public void startGame(Entity[] entity, Table table) {
-        System.out.println("The game TicTacToe begins!!!\n");
-        table.showTable();
+        System.out.println("The game begins!!!");
         while (true) {
             System.out.println(entity[0].getName() + " is playing");
             entity[0].step(table);
             table.showTable();
-            if (table.checkWins(table, entity[0].getValue())) {
+            if (table.checkWins(table, entity[0])) {
                 System.out.println(entity[0].getName() + " WIN!!");
                 break;
             }
@@ -21,7 +20,7 @@ public class GameEngine {
             System.out.println(entity[1].getName() + " is playing");
             entity[1].step(table);
             table.showTable();
-            if (table.checkWins(table, entity[1].getValue())) {
+            if (table.checkWins(table, entity[1])) {
                 System.out.println(entity[1].getName() + " WIN!!!");
                 break;
             }
