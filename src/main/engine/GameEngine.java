@@ -5,6 +5,7 @@ import main.entity.Table;
 import main.service.TableService;
 
 public class GameEngine {
+
     public void startGame(Entity[] entity, Table table, TableService tableService) {
         System.out.println("\nTicTacToe begins!!!\n");
         tableService.showTable(table);

@@ -2,7 +2,7 @@ package main.service;
 
 import main.entity.Table;
 
-public class TableService {
+public class TableService{
 
     // Checks if the cell is already occupied by the value
     public boolean isCellOfTableValid(int x, int x1, boolean isPlayer, Table table) {

@@ -5,6 +5,7 @@ import main.service.TableService;
 import java.util.Random;
 
 public class Computer implements Entity {
+
     private final char VALUE;
     private final String name = "Computer";
 

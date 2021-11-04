@@ -7,7 +7,6 @@ import main.entity.Player;
 import java.util.Scanner;
 
 public class PreparationService {
-
     //Prepares entities for the game depending on the choice
     public Entity[] preparation() {
         Scanner scanner = new Scanner(System.in);

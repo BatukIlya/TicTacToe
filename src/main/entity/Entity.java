@@ -11,5 +11,4 @@ public interface Entity {
     String getName();
 
     boolean isPlayer();
-
 }
