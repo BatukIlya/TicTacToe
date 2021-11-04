@@ -7,6 +7,8 @@ import main.entity.Player;
 import java.util.Scanner;
 
 public class PreparationService {
+
+    //Prepares entities for the game depending on the choice
     public Entity[] preparation() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Do you want to play with each other player or computer? \n" +
@@ -46,6 +48,7 @@ public class PreparationService {
         return entity;
     }
 
+    //Allows you to start the game again or finish it
     public boolean repeatGameOrNot() {
         Scanner scanner = new Scanner(System.in);
         final String YES = "yes";

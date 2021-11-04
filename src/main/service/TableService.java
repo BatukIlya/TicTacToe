@@ -3,6 +3,8 @@ package main.service;
 import main.entity.Table;
 
 public class TableService {
+
+    // Checks if the cell is already occupied by the value
     public boolean isCellOfTableValid(int x, int x1, boolean isPlayer, Table table) {
         boolean validValue = table.getTable()[x][x1] == table.getVALUE_IS_EMPTY();
         if (isPlayer && !validValue) {
@@ -13,6 +15,7 @@ public class TableService {
         return validValue;
     }
 
+    // Inserts a value into a cell
     public void setValueTable(int x, int x1, char value, Table table) {
         table.getTable()[x][x1] = value;
     }
@@ -28,6 +31,7 @@ public class TableService {
         }
     }
 
+    //Performs a check for the fullness of the table
     public boolean tableFull(Table table) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -40,6 +44,7 @@ public class TableService {
         return true;
     }
 
+    //Performs a WIN check
     public boolean checkWins(Table table, char v) {
         for (int i = 0; i < 3; i++) {
             if ((table.getTable()[i][0] == v && table.getTable()[i][1] == v && table.getTable()[i][2] == v) ||

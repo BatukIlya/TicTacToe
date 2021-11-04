@@ -38,6 +38,7 @@ public class Player implements Entity {
 
     }
 
+    //Returns the value of the array cell after selecting the coordinates of the table cell
     private int[] getArrayValue() {
         Scanner scanner = new Scanner(System.in);
         int[] arrayValue = new int[2];
