@@ -1,5 +1,7 @@
 package main.entity;
 
+import main.service.TableService;
+
 import java.util.Random;
 
 public class Computer implements Entity {
@@ -26,7 +28,7 @@ public class Computer implements Entity {
     }
 
     @Override
-    public void step(Table table) {
+    public void step(TableService tableService, Table table) {
         Random random = new Random();
         int x;
         int x1;
@@ -38,7 +40,7 @@ public class Computer implements Entity {
         do {
             x = random.nextInt(3);
             x1 = random.nextInt(3);
-        } while (!table.isCellOfTableValid(x, x1, this.isPlayer()));
-        table.setValueTable(x, x1, this.VALUE);
+        } while (!tableService.isCellOfTableValid(x, x1, this.isPlayer(), table));
+        tableService.setValueTable(x, x1, this.VALUE, table);
     }
 }
