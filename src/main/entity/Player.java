@@ -78,7 +78,6 @@ public class Player implements Entity {
                     return arrayValue;
                 default:
                     System.out.println("You entered incorrect value!!!");
-
             }
         }
     }
