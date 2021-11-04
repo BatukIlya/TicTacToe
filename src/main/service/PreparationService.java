@@ -59,7 +59,7 @@ public class PreparationService {
                 return true;
             } else if (choice.equals(NO)) {
                 System.out.println("Good bye!!!");
-                System.exit(0);
+                return false;
             } else {
                 System.out.println("You entry incorrect value!!!\n Entry Yes or No...");
             }

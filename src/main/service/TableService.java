@@ -1,6 +1,5 @@
 package main.service;
 
-import main.entity.Entity;
 import main.entity.Table;
 
 public class TableService {

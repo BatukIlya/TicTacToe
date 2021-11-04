@@ -10,14 +10,10 @@ public class Main {
         PreparationService preparationService = new PreparationService();
         GameEngine gameEngine = new GameEngine();
         TableService tableService = new TableService();
+        System.out.println("Welcome to TicTacToe\n");
         do {
             gameEngine.startGame(preparationService.preparation(), new Table(), tableService);
         }
         while (preparationService.repeatGameOrNot());
-        {
-            gameEngine.startGame(preparationService.preparation(), new Table(), tableService);
-        }
-
-
     }
 }
