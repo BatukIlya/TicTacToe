@@ -1,7 +1,6 @@
 package main.entity;
 
 public class Table {
-
     private char[][] getTable;
     private final char VALUE_IS_EMPTY = '-';
 

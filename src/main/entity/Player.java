@@ -5,7 +5,6 @@ import main.service.TableService;
 import java.util.Scanner;
 
 public class Player implements Entity {
-
     private final String name;
     private final char VALUE;
 
