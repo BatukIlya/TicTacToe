@@ -6,7 +6,13 @@ import java.util.Scanner;
 
 public class Player implements Entity {
     private final String NAME;
-    private final char VALUE;
+    private char VALUE;
+
+    public Player() {
+        this.VALUE = 'x';
+        this.NAME = "Player";
+    }
+
 
     public Player(char value, String name) {
         this.VALUE = value;

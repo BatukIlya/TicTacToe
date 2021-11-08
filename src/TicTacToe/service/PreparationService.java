@@ -43,7 +43,7 @@ public class PreparationService {
 
         switch (choice) {
             case 1:
-                entity[0] = new Player(VALUE_X, "Player");
+                entity[0] = new Player();
                 entity[1] = new Computer();
                 return entity;
             case 2:
