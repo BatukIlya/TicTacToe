@@ -66,7 +66,7 @@ public class TableService {
     }
 
     private boolean checkWinsHorizontally(char value) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < table.getTable().length; i++) {
             if (table.getTable()[i][0] == value && table.getTable()[i][1] == value && table.getTable()[i][2] == value) {
                 return true;
             }
@@ -75,7 +75,7 @@ public class TableService {
     }
 
     private boolean checkWinsVertically(char value) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < table.getTable().length; i++) {
             if (table.getTable()[0][i] == value && table.getTable()[1][i] == value && table.getTable()[2][i] == value) {
                 return true;
             }
