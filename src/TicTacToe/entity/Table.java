@@ -1,11 +1,12 @@
 package TicTacToe.entity;
 
 public class Table {
-    private char[][] getTable;
+    private final char[][] getTable;
     private final char VALUE_IS_EMPTY = '-';
 
     public Table() {
         getTable = new char[3][3];
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 getTable[i][j] = VALUE_IS_EMPTY;

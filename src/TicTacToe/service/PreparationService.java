@@ -7,20 +7,16 @@ import TicTacToe.entity.Player;
 import java.util.Scanner;
 
 public class PreparationService {
-    private final String YES = "yes";
-
-    private final String NO = "no";
-
-    private final char VALUE_X = 'x';
-
-    private final char VALUE_O = 'o';
+    private static final String YES = "yes";
+    private static final String NO = "no";
+    private static final char VALUE_X = 'x';
+    private static final char VALUE_O = 'o';
 
     /**
      * Prepares entities for the game depending on the choice
      */
     public Entity[] preparation() {
         Scanner scanner = new Scanner(System.in);
-
         int choice;
 
         System.out.println("Do you want to play with each other player or computer? \n" +
@@ -36,7 +32,6 @@ public class PreparationService {
                 } else {
                     System.out.println("You entered an incorrect value!!!\n Enter 1 or 2...");
                     scanner.nextLine();
-                    continue;
                 }
             } else {
                 System.out.println("You entered an incorrect value!!!\n Enter 1 or 2...");
@@ -55,9 +50,9 @@ public class PreparationService {
                 entity[0] = new Player(VALUE_X, "Player 1");
                 entity[1] = new Player(VALUE_O, "Player 2");
                 return entity;
+            default:
+                throw new RuntimeException("Something went wrong!!! Sorry.");
         }
-        /** This will never happen */
-        throw new RuntimeException("Something went wrong!!! Sorry.");
     }
 
 

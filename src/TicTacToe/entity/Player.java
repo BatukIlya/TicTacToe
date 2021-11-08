@@ -4,7 +4,7 @@ import TicTacToe.service.TableService;
 
 import java.util.Scanner;
 
-public class Player implements Entity{
+public class Player implements Entity {
     private final String NAME;
     private final char VALUE;
 
@@ -40,7 +40,9 @@ public class Player implements Entity{
 
     }
 
-    /** Returns the value of the array cell after selecting the coordinates of the table cell */
+    /**
+     * Returns the value of the array cell after selecting the coordinates of the table cell
+     */
     private int[] getArrayValue() {
         Scanner scanner = new Scanner(System.in);
         int[] arrayValue = new int[2];

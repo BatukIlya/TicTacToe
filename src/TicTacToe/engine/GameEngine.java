@@ -16,20 +16,25 @@ public class GameEngine {
             System.out.println(player1.getNAME() + " is playing");
             player1.step(tableService);
             tableService.showTable();
+
             if (tableService.checkWins(player1.getValue())) {
                 System.out.println(player1.getNAME() + " WIN!!");
                 break;
             }
+
             if (tableService.tableFull()) {
                 break;
             }
+
             System.out.println(player2.getNAME() + " is playing");
             player2.step(tableService);
             tableService.showTable();
+
             if (tableService.checkWins(player2.getValue())) {
                 System.out.println(player2.getNAME() + " WIN!!!");
                 break;
             }
+
             if (tableService.tableFull()) {
                 break;
             }

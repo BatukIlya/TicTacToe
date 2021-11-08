@@ -14,6 +14,7 @@ public class TableService {
      */
     public boolean isCellOfTableValid(int x, int y, boolean isPlayer) {
         boolean validValue = table.getTable()[x][y] == table.getVALUE_IS_EMPTY();
+
         if (isPlayer && !validValue) {
             showTable();
             System.out.println("ERROR : This cell is full, select another cell...");
@@ -31,9 +32,9 @@ public class TableService {
 
     public void showTable() {
         System.out.println("   a  b  c");
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < table.getTable().length; i++) {
             System.out.print((i + 1) + "  ");
-            for (int j = 0; j < 3; j++) {
+            for (int j = 0; j < table.getTable().length; j++) {
                 System.out.print(table.getTable()[i][j] + "  ");
             }
             System.out.println();
@@ -44,8 +45,8 @@ public class TableService {
      * Performs a check for the fullness of the table
      */
     public boolean tableFull() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < table.getTable().length; i++) {
+            for (int j = 0; j < table.getTable().length; j++) {
                 if (table.getTable()[i][j] == table.getVALUE_IS_EMPTY()) {
                     return false;
                 }
