@@ -1,4 +1,4 @@
-package main.entity;
+package TicTacToe.entity;
 
 public class Table {
     private char[][] getTable;

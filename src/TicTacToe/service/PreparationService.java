@@ -1,23 +1,36 @@
-package main.service;
+package TicTacToe.service;
 
-import main.entity.Computer;
-import main.entity.Entity;
-import main.entity.Player;
+import TicTacToe.entity.Computer;
+import TicTacToe.entity.Entity;
+import TicTacToe.entity.Player;
 
 import java.util.Scanner;
 
 public class PreparationService {
-    //Prepares entities for the game depending on the choice
+    private final String YES = "yes";
+
+    private final String NO = "no";
+
+    private final char VALUE_X = 'x';
+
+    private final char VALUE_O = 'o';
+
+    /**
+     * Prepares entities for the game depending on the choice
+     */
     public Entity[] preparation() {
         Scanner scanner = new Scanner(System.in);
+
+        int choice;
+
         System.out.println("Do you want to play with each other player or computer? \n" +
                 "Press 1. (for play with computer)\n" +
                 "Press 2. (for play with you friend)");
-        int choice;
+
         while (true) {
             if (scanner.hasNextInt()) {
                 int x = scanner.nextInt();
-                if (x > 0 && x < 3) {
+                if (x == 1 || x == 2) {
                     choice = x;
                     break;
                 } else {
@@ -35,28 +48,30 @@ public class PreparationService {
 
         switch (choice) {
             case 1:
-                entity[0] = new Player('x', "Player");
-                entity[1] = new Computer('o');
+                entity[0] = new Player(VALUE_X, "Player");
+                entity[1] = new Computer(VALUE_O);
                 return entity;
             case 2:
-                entity[0] = new Player('x', "Player 1");
-                entity[1] = new Player('o', "Player 2");
+                entity[0] = new Player(VALUE_X, "Player 1");
+                entity[1] = new Player(VALUE_O, "Player 2");
                 return entity;
         }
-        System.exit(0);
-        return entity;
+        /** This will never happen */
+        throw new RuntimeException("Something went wrong!!! Sorry.");
     }
 
-    //Allows you to start the game again or finish it
+
+    /**
+     * Allows you to start the game again or finish it
+     */
     public boolean repeatGameOrNot() {
         Scanner scanner = new Scanner(System.in);
-        final String YES = "yes";
-        final String NO = "no";
 
         System.out.println("Do you want to play again???\n Entry Yes or No...\n");
 
         while (true) {
             String choice = scanner.nextLine().toLowerCase();
+
             if (choice.equals(YES)) {
                 return true;
             } else if (choice.equals(NO)) {
@@ -66,7 +81,6 @@ public class PreparationService {
                 System.out.println("You entry incorrect value!!!\n Entry Yes or No...");
             }
         }
-
     }
 }
 

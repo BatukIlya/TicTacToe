@@ -1,16 +1,16 @@
-package main.entity;
+package TicTacToe.entity;
 
-import main.service.TableService;
+import TicTacToe.service.TableService;
 
 import java.util.Scanner;
 
-public class Player implements Entity {
-    private final String name;
+public class Player implements Entity{
+    private final String NAME;
     private final char VALUE;
 
     public Player(char value, String name) {
         this.VALUE = value;
-        this.name = name;
+        this.NAME = name;
     }
 
     @Override
@@ -19,8 +19,8 @@ public class Player implements Entity {
     }
 
     @Override
-    public String getName() {
-        return name;
+    public String getNAME() {
+        return NAME;
     }
 
     @Override
@@ -29,16 +29,18 @@ public class Player implements Entity {
     }
 
     @Override
-    public void step(TableService tableService, Table table) {
+    public void step(TableService tableService) {
         int[] arrayValue;
+
         do {
             arrayValue = getArrayValue();
-        } while (!tableService.isCellOfTableValid(arrayValue[0], arrayValue[1], this.isPlayer(), table));
-        tableService.setValueTable(arrayValue[0], arrayValue[1], this.VALUE, table);
+        } while (!tableService.isCellOfTableValid(arrayValue[0], arrayValue[1], this.isPlayer()));
+
+        tableService.setValueTable(arrayValue[0], arrayValue[1], this.VALUE);
 
     }
 
-    //Returns the value of the array cell after selecting the coordinates of the table cell
+    /** Returns the value of the array cell after selecting the coordinates of the table cell */
     private int[] getArrayValue() {
         Scanner scanner = new Scanner(System.in);
         int[] arrayValue = new int[2];
@@ -46,6 +48,7 @@ public class Player implements Entity {
         while (true) {
             System.out.println("Entry a value for the cell. (a1, b2, c3 .... for example)");
             String value = scanner.nextLine().toLowerCase();
+
             switch (value) {
                 case "a1":
                     return arrayValue;

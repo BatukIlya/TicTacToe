@@ -1,12 +1,12 @@
-package main.entity;
+package TicTacToe.entity;
 
-import main.service.TableService;
+import TicTacToe.service.TableService;
 
 import java.util.Random;
 
 public class Computer implements Entity {
     private final char VALUE;
-    private final String name = "Computer";
+    private final String NAME = "Computer";
 
     public Computer(char value) {
         this.VALUE = value;
@@ -18,8 +18,8 @@ public class Computer implements Entity {
     }
 
     @Override
-    public String getName() {
-        return name;
+    public String getNAME() {
+        return NAME;
     }
 
     @Override
@@ -28,19 +28,22 @@ public class Computer implements Entity {
     }
 
     @Override
-    public void step(TableService tableService, Table table) {
+    public void step(TableService tableService) {
         Random random = new Random();
         int x;
-        int x1;
+        int y;
+
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         do {
             x = random.nextInt(3);
-            x1 = random.nextInt(3);
-        } while (!tableService.isCellOfTableValid(x, x1, this.isPlayer(), table));
-        tableService.setValueTable(x, x1, this.VALUE, table);
+            y = random.nextInt(3);
+        } while (!tableService.isCellOfTableValid(x, y, this.isPlayer()));
+
+        tableService.setValueTable(x, y, this.VALUE);
     }
 }
