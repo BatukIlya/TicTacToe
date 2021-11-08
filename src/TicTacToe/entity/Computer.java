@@ -5,12 +5,9 @@ import TicTacToe.service.TableService;
 import java.util.Random;
 
 public class Computer implements Entity {
-    private final char VALUE;
-    private final String NAME = "Computer";
+    private static final char VALUE = 'o';
+    private static final String NAME = "Computer";
 
-    public Computer(char value) {
-        this.VALUE = value;
-    }
 
     @Override
     public boolean isPlayer() {
