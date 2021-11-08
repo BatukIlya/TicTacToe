@@ -9,6 +9,7 @@ public class TicTacToe {
         System.out.println("Welcome to TicTacToe\n");
         PreparationService preparationService = new PreparationService();
         GameEngine gameEngine = new GameEngine();
+
         do {
             gameEngine.startGame(preparationService.preparation(), new TableService());
         }
