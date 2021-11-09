@@ -9,6 +9,7 @@ public class Player implements Entity {
     private char VALUE;
 
     public Player() {
+
         this.VALUE = 'x';
         this.NAME = "Player";
     }
